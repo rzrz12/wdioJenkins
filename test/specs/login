@@ -1,0 +1,11 @@
+import LoginPage from '../../PageObjects/LoginPage';  //relative directory segments . ..
+
+describe('Login Page', function () {
+  it('should let you log in', function () {
+    LoginPage.open();
+	LoginPage.email.setValue('valid@user.com');
+	LoginPage.password.setValue('hunter2');
+	LoginPage.submit();
+  })
+})
+
