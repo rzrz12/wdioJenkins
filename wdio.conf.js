@@ -6,10 +6,7 @@ exports.config = {
 	//
 	// WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
 	// on a remote machine).
-	host: '0.0.0.0',
-	port: 4444,
-	path: '/wd/hub',
-	//runner: 'local',
+	runner: 'local',
 	//
 	// ==================
 	// Specify Test Files
@@ -116,7 +113,6 @@ exports.config = {
 	// commands. Instead, they hook themselves up into the test process.
 	services: [ 'selenium-standalone' ],
 	seleniumLogs: './context/selenium-logs',
-	/*
 	seleniumArgs: {
 		drivers: {
 			ie: {
@@ -130,14 +126,14 @@ exports.config = {
        javaArgs: [
        '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
        ],
-	   
+	   */
 	},
 
 	seleniumInstallArgs: {
 		proxy: 'http://127.0.0.1:3128/',
 		javaArgs: [ '-Dwebdriver.ie.driver="C:Users\robertzhangDownloadsIEDriverServer.exe"' ]
 	},
-*/
+
 	// Framework you want to run your specs with.
 	// The following are supported: Mocha, Jasmine, and Cucumber
 	// see also: https://webdriver.io/docs/frameworks.html
