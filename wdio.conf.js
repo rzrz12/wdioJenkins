@@ -54,7 +54,7 @@ exports.config = {
 
 		/**/
 		{
-			browserName: 'firefox'
+			browserName: 'chrome'
 		}
 		/*
         {
