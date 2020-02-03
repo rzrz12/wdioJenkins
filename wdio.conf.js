@@ -115,7 +115,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     services: ['selenium-standalone'],
     seleniumLogs: './context/selenium-logs',
-    
+    /*
     seleniumArgs:
     {
         drivers: {
@@ -131,15 +131,7 @@ exports.config = {
        '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
        ],
 	   */
-    },
     
-    seleniumInstallArgs: {
-        proxy: 'http://127.0.0.1:3128/',
-       javaArgs: [
-       '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
-       ],
-    },
-
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
