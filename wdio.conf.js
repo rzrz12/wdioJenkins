@@ -113,7 +113,7 @@ exports.config = {
 	// commands. Instead, they hook themselves up into the test process.
 	services: [ 'selenium-standalone' ],
 	seleniumLogs: './context/selenium-logs',
-
+	/*
 	seleniumArgs: {
 		drivers: {
 			ie: {
@@ -127,16 +127,10 @@ exports.config = {
        javaArgs: [
        '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
        ],
-	   */
 	},
-
+*/
 	seleniumInstallArgs: {
-		proxy: 'http://127.0.0.1:3128/',
-		drivers: {
-			ie: {
-				arch: 'ia32'
-			}
-		}
+		proxy: 'http://127.0.0.1:3128/'
 		/*
         javaArgs: [
        '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
