@@ -131,7 +131,12 @@ exports.config = {
 	},
 
 	seleniumInstallArgs: {
-		proxy: 'http://127.0.0.1:3128/'
+		proxy: 'http://127.0.0.1:3128/',
+		drivers: {
+			ie: {
+				arch: 'ia32'
+			}
+		}
 		/*
         javaArgs: [
        '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
