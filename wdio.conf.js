@@ -8,6 +8,9 @@ exports.config = {
 	// on a remote machine).
 	runner: 'local',
 	//
+	// Override default path ('/wd/hub') for chromedriver service.
+	path: '/',
+	//
 	// ==================
 	// Specify Test Files
 	// ==================
@@ -44,30 +47,23 @@ exports.config = {
 	// https://docs.saucelabs.com/reference/platforms-configurator
 	//
 	capabilities: [
-		// maxInstances can get overwritten per capability. So if you have an in-house Selenium
-		// grid with only 5 firefox instances available you can make sure that not more than
-		// 5 instances get started at a time.
-		//{   browserName: 'chrome' }
-
-		/**/
 		{
-			browserName: 'firefox'
+			// maxInstances can get overwritten per capability. So if you have an in-house Selenium
+			// grid with only 5 firefox instances available you can make sure that not more than
+			// 5 instances get started at a time.
+			maxInstances: 5,
+			//
+			browserName: 'chrome',
+			'goog:chromeOptions': {
+				useAutomationExtension: false,
+				args: [ '--start-maximized' ]
+			}
+			// If outputDir is provided WebdriverIO can capture driver session logs
+			// it is possible to configure which logTypes to include/exclude.
+			// excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+			// excludeDriverLogs: ['bugreport', 'server'],
 		}
-		/*
-        {
-            browserName: 'Edge'
-        },
-        
-        {
-            browserName: 'internet explorer'
-        }*/
 	],
-
-	//browserName: 'chrome',
-	// If outputDir is provided WebdriverIO can capture driver session logs
-	// it is possible to configure which logTypes to include/exclude.
-	// excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-	// excludeDriverLogs: ['bugreport', 'server'],
 	//
 	// ===================
 	// Test Configurations
@@ -99,7 +95,7 @@ exports.config = {
 	// with `/`, the base url gets prepended, not including the path portion of your baseUrl.
 	// If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
 	// gets prepended directly.
-	baseUrl: 'http://testyourlog.in/',
+	baseUrl: 'http://localhost',
 	//
 	// Default timeout for all waitFor* commands.
 	waitforTimeout: 10000,
@@ -111,32 +107,7 @@ exports.config = {
 	// Services take over a specific job you don't want to take care of. They enhance
 	// your test setup with almost no effort. Unlike plugins, they don't add new
 	// commands. Instead, they hook themselves up into the test process.
-	services: [ 'selenium-standalone' ],
-	seleniumLogs: './context/selenium-logs',
-	/*
-	seleniumArgs: {
-		drivers: {
-			ie: {
-				arch: 'ia32'
-			}
-		}
-		/*
-	   javaArgs: [
-       '-Dwebdriver.edge.driver="C:\Users\robertzhang\Downloads\MicrosoftWebDriver.exe"'
-       ],
-       javaArgs: [
-       '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
-       ],
-	},
-*/
-	seleniumInstallArgs: {
-		proxy: 'http://172.20.224.1:3128/'
-		/*
-        javaArgs: [
-       '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
-       ],
-       */
-	},
+	services: [ 'chromedriver' ],
 
 	// Framework you want to run your specs with.
 	// The following are supported: Mocha, Jasmine, and Cucumber
@@ -152,19 +123,7 @@ exports.config = {
 	// Test reporter for stdout.
 	// The only one supported by default is 'dot'
 	// see also: https://webdriver.io/docs/dot-reporter.html
-	reporters: [
-		'spec',
-		[
-			'junit',
-			{
-				outputDir: './',
-				outputFileFormat: function(options) {
-					// optional
-					return `results-${options.cid}.${options.capabilities}.xml`;
-				}
-			}
-		]
-	],
+	reporters: [ 'spec' ],
 
 	//
 	// Options to be passed to Mocha.
