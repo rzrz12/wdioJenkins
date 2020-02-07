@@ -130,7 +130,7 @@ exports.config = {
 	},
 */
 	seleniumInstallArgs: {
-		proxy: 'http://10.1.11.104:3128/'
+		proxy: 'http://169.254.217.196:3128/'
 		/*
         javaArgs: [
        '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
