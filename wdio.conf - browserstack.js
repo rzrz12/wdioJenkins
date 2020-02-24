@@ -7,6 +7,8 @@ exports.config = {
 	// WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
 	// on a remote machine).
 	runner: 'local',
+	user: 'danielcorless1',
+	key: '2VzkEXrQJFutNf3yNb5K',
 	//
 	// ==================
 	// Specify Test Files
@@ -44,30 +46,19 @@ exports.config = {
 	// https://docs.saucelabs.com/reference/platforms-configurator
 	//
 	capabilities: [
-		// maxInstances can get overwritten per capability. So if you have an in-house Selenium
-		// grid with only 5 firefox instances available you can make sure that not more than
-		// 5 instances get started at a time.
-		//{   browserName: 'chrome' }
-
-		/**/
 		{
+			// maxInstances can get overwritten per capability. So if you have an in-house Selenium
+			// grid with only 5 firefox instances available you can make sure that not more than
+			// 5 instances get started at a time.
+			maxInstances: 5,
+			//
 			browserName: 'firefox'
+			// If outputDir is provided WebdriverIO can capture driver session logs
+			// it is possible to configure which logTypes to include/exclude.
+			// excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+			// excludeDriverLogs: ['bugreport', 'server'],
 		}
-		/*
-        {
-            browserName: 'Edge'
-        },
-        
-        {
-            browserName: 'internet explorer'
-        }*/
 	],
-
-	//browserName: 'chrome',
-	// If outputDir is provided WebdriverIO can capture driver session logs
-	// it is possible to configure which logTypes to include/exclude.
-	// excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-	// excludeDriverLogs: ['bugreport', 'server'],
 	//
 	// ===================
 	// Test Configurations
@@ -99,7 +90,7 @@ exports.config = {
 	// with `/`, the base url gets prepended, not including the path portion of your baseUrl.
 	// If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
 	// gets prepended directly.
-	baseUrl: 'http://testyourlog.in/',
+	baseUrl: 'http://localhost',
 	//
 	// Default timeout for all waitFor* commands.
 	waitforTimeout: 10000,
@@ -111,38 +102,7 @@ exports.config = {
 	// Services take over a specific job you don't want to take care of. They enhance
 	// your test setup with almost no effort. Unlike plugins, they don't add new
 	// commands. Instead, they hook themselves up into the test process.
-	services: [ 'selenium-standalone' ],
-	seleniumLogs: './context/selenium-logs',
-
-	seleniumArgs: {
-		drivers: {
-			ie: {
-				arch: 'ia32'
-			}
-		}
-		/*
-	   javaArgs: [
-       '-Dwebdriver.edge.driver="C:\Users\robertzhang\Downloads\MicrosoftWebDriver.exe"'
-       ],
-       javaArgs: [
-       '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
-       ],
-	   */
-	},
-
-	seleniumInstallArgs: {
-		proxy: 'http://127.0.0.1:3128/',
-		drivers: {
-			ie: {
-				arch: 'ia32'
-			}
-		}
-		/*
-        javaArgs: [
-       '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
-       ],
-       */
-	},
+	services: [ 'browserstack' ],
 
 	// Framework you want to run your specs with.
 	// The following are supported: Mocha, Jasmine, and Cucumber
