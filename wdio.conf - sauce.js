@@ -7,8 +7,23 @@ exports.config = {
 	// WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
 	// on a remote machine).
 	runner: 'local',
-	user: 'danielcorless1',
-	key: '2VzkEXrQJFutNf3yNb5K',
+	//
+	// =================
+	// Service Providers
+	// =================
+	// WebdriverIO supports Sauce Labs, Browserstack, and Testing Bot (other cloud providers
+	// should work too though). These services define specific user and key (or access key)
+	// values you need to put in here in order to connect to these services.
+	//
+	user: process.env.SAUCE_USERNAME,
+	key: process.env.SAUCE_ACCESS_KEY,
+	sauceConnect: false,
+	//
+	// If you run your tests on SauceLabs you can specify the region you want to run your tests
+	// in via the `region` property. Available short handles for regions are `us` (default) and `eu`.
+	// These regions are used for the Sauce Labs VM cloud and the Sauce Labs Real Device Cloud.
+	// If you don't provide the region it will default for the `us`
+	region: 'eu',
 	//
 	// ==================
 	// Specify Test Files
@@ -102,7 +117,12 @@ exports.config = {
 	// Services take over a specific job you don't want to take care of. They enhance
 	// your test setup with almost no effort. Unlike plugins, they don't add new
 	// commands. Instead, they hook themselves up into the test process.
-	services: [ 'browserstack' ],
+	services: [ 'sauce' ],
+	/*
+	
+	seleniumInstallArgs: {
+		proxy: 'http://127.0.0.1:3128/'
+	},*/
 
 	// Framework you want to run your specs with.
 	// The following are supported: Mocha, Jasmine, and Cucumber
