@@ -3,7 +3,7 @@ const assert = require('assert');
 
 describe('Joe Bloggs CV page', () => {
 	it('should have the right heading', () => {
-		browser.url('http://dswks125:8088');
+		browser.url('http://172.17.0.6:8088');
 		$('h1').waitForDisplayed();
 		const heading = $('h1').getText();
 		console.log(heading);
