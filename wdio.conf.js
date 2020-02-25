@@ -15,8 +15,8 @@ exports.config = {
 	// should work too though). These services define specific user and key (or access key)
 	// values you need to put in here in order to connect to these services.
 	//
-	user: process.env.SAUCE_USERNAME,
-	key: process.env.SAUCE_ACCESS_KEY,
+	user: 'danielcook993',
+	key: 'f582f94e-e9ff-40d4-9ffd-4194f5bec242',
 	sauceConnect: true,
 	//
 	// If you run your tests on SauceLabs you can specify the region you want to run your tests
