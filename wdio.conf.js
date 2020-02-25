@@ -51,7 +51,10 @@ exports.config = {
 
 		/**/
 		{
-			browserName: 'firefox'
+			browserName: 'chrome',
+			'goog:chromeOptions': {
+				useAutomationExtension: false
+			}
 		}
 		/*
         {
@@ -113,35 +116,21 @@ exports.config = {
 	// commands. Instead, they hook themselves up into the test process.
 	services: [ 'selenium-standalone' ],
 	seleniumLogs: './context/selenium-logs',
-	/*
 	seleniumArgs: {
 		drivers: {
-			ie: {
-				arch: 'ia32'
+			chrome: {
+				version: '79.0.3945.36'
 			}
 		}
-		/*
-	   javaArgs: [
-       '-Dwebdriver.edge.driver="C:\Users\robertzhang\Downloads\MicrosoftWebDriver.exe"'
-       ],
-       javaArgs: [
-       '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
-       ],
-	   
 	},
 
 	seleniumInstallArgs: {
-		proxy: 'http://127.0.0.1:3128/',
 		drivers: {
-			ie: {
-				arch: 'ia32'
+			chrome: {
+				version: '79.0.3945.36'
 			}
 		}
-		
-        javaArgs: [
-       '-Dwebdriver.ie.driver="C:\Users\robertzhang\Downloads\IEDriverServer.exe"'
-       ],
-       */
+	},
 
 	// Framework you want to run your specs with.
 	// The following are supported: Mocha, Jasmine, and Cucumber
